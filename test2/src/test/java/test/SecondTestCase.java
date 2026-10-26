@@ -1,6 +1,7 @@
 package test;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,6 +20,7 @@ public class SecondTestCase {
     }
 
     @Test
+    @Disabled("Intentional failure demo; enable only when learning CI failure reporting")
     public void failed(){
         Assertions.fail("must be failed this test");
     }
@@ -29,7 +31,7 @@ public class SecondTestCase {
     }
 
     @ParameterizedTest(name = "my test({0})")
-    @ValueSource(strings = {"value1", "value2", "error"})
+    @ValueSource(strings = {"value1", "value2", "value3"})
     public void parameterized(String value) {
         Assertions.assertNotEquals("error", value);
     }
